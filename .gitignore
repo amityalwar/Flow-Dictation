@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.DS_Store
+*.env
+*.env.*
+.claude/
+
+# Rust
+src-tauri/target/
+src-tauri/gen/schemas

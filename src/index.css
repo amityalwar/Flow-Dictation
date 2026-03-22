@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* M3 Dark scheme — baseline purple primary */
+  --md-primary: #d0bcff;
+  --md-on-primary: #381e72;
+  --md-primary-container: #4f378b;
+  --md-on-primary-container: #eaddff;
+  --md-secondary: #ccc2dc;
+  --md-on-secondary: #332d41;
+  --md-secondary-container: #4a4458;
+  --md-on-secondary-container: #e8def8;
+  --md-tertiary: #efb8c8;
+  --md-on-tertiary: #492532;
+  --md-tertiary-container: #633b48;
+  --md-on-tertiary-container: #ffd8e4;
+  --md-error: #f2b8b5;
+  --md-on-error: #601410;
+  --md-error-container: #8c1d18;
+  --md-on-error-container: #f9dedc;
+  --md-surface: #1c1b1f;
+  --md-on-surface: #e6e1e5;
+  --md-on-surface-variant: #cac4d0;
+  --md-outline: #938f99;
+  --md-outline-variant: #49454f;
+  --md-surface-container-lowest: #1c1b1f;
+  --md-surface-container-low: #211f26;
+  --md-surface-container: #2b2930;
+  --md-surface-container-high: #36343b;
+  --md-surface-container-highest: #484649;
+  --md-surface-bright: #3b383e;
+  --md-inverse-surface: #e6e1e5;
+  --md-inverse-on-surface: #313033;
+  --md-inverse-primary: #6750a4;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-family: "Google Sans", "Roboto", -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  color: var(--md-on-surface);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+[data-tauri-drag-region] {
+  cursor: grab;
+}
+[data-tauri-drag-region]:active {
+  cursor: grabbing;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--md-outline-variant);
+  border-radius: 4px;
+}
+
+/* ---- M3 Motion ---- */
+
+@keyframes m3-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes m3-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(208, 188, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 24px 4px rgba(208, 188, 255, 0.08);
+  }
+}
+
+@keyframes m3-ripple-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes m3-spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-m3-enter {
+  animation: m3-fade-in 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.animate-m3-pulse {
+  animation: m3-pulse 2s cubic-bezier(0.2, 0, 0, 1) infinite;
+}
+
+.animate-m3-ripple {
+  animation: m3-ripple-ring 1.6s cubic-bezier(0.2, 0, 0, 1) infinite;
+}
+
+.animate-m3-spin {
+  animation: m3-spin 0.8s linear infinite;
+}
